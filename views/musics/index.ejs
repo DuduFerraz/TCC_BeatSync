@@ -1,0 +1,32 @@
+<h1>All Music</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nome da Música</th>
+            <th>Artista</th>
+            <th>Genero</th>
+            <th>Album</th>
+            <th>Link do Spotify</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% music.forEach(music => { %>
+            <tr>
+                <td><%= music.id %></td>
+                <td><%= music.musicName %></td>
+                <td><%= music.artist %></td>
+                <td><%= music.gender %></td>
+                <td><%= music.album %></td>
+                <td><a href="<%= music.link_url %>" target="_blank">Ouvir no Spotify</a></td>
+                <td>
+                    <a href="/music/<%= music.id %>/edit">Visualizar</a>
+                    <a href="/music/<%= music.id %>/edit">Editar</a>
+                    <form action="/music/<%= music.id %>?_method=DELETE" method="POST">
+                        <button type="submit" id="delete">Deletar</button>
+                    </form>
+                </td>
+            </tr>
+        <% }) %>
+    </tbody>
+</table>

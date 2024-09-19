@@ -1,0 +1,67 @@
+<div class="form">
+    <form action="/musics" method="post">
+        <h2>Cadastro de Música</h2>
+        <div class="fpr">
+            <div>
+                <label for="nome">Nome da Música:</label>
+                <input type="text" id="nome" name="nome" required>
+            </div>
+
+            <div>
+                <label for="artist">Artista:</label>
+                <input type="text" id="artist" name="artist" required>
+            </div>
+
+            <div>
+                <label for="gender">Gênero:</label>
+                <br>
+                <label for="gender-rock">Rock</label>
+                <input type="radio" id="gender-rock" name="gender" value="rock" required>
+              
+                <label for="gender-pop">Pop</label>
+                <input type="radio" id="gender-pop" name="gender" value="pop" required>
+
+                <label for="gender-jazz">Jazz</label>
+                <input type="radio" id="gender-jazz" name="gender" value="jazz" required>
+
+                <label for="gender-hiphop">Hip-Hop</label>
+                <input type="radio" id="gender-hiphop" name="gender" value="hip-hop" required>
+
+                <label for="gender-eletronica">Eletrônica</label>
+                <input type="radio" id="gender-eletronica" name="gender" value="eletronica" required>
+
+                <label for="gender-erudita">Erudita</label>
+                <input type="radio" id="gender-erudita" name="gender" value="erudita" required>
+
+                <label for="gender-funk">Funk</label>
+                <input type="radio" id="gender-funk" name="gender" value="funk" required>
+
+                <label for="gender-heavy-metal">Heavy Metal</label>
+                <input type="radio" id="gender-heavy-metal" name="gender" value="heavy-metal" required>
+
+                <label for="gender-instrumental">Instrumental</label>
+                <input type="radio" id="gender-instrumental" name="gender" value="instrumental" required>
+
+                <label for="gender-phonk">Phonk</label>
+                <input type="radio" id="gender-phonk" name="gender" value="phonk" required>
+
+                <label for="gender-outro">Outro</label>
+                <input type="radio" id="gender-outro" name="gender" value="outro" required>
+            </div>
+
+            <div>
+                <label for="album">Álbum:</label>
+                <input type="text" id="album" name="album" required>
+            </div>
+
+            <div>
+                <label for="link_url">Link do Spotify:</label>
+                <input type="url" id="link_url" name="link_url" placeholder="https://open.spotify.com/track/..." required>
+            </div>
+
+            <div class="btn">
+                <button type="submit">Enviar</button>
+            </div>
+        </div>
+    </form>
+</div>
