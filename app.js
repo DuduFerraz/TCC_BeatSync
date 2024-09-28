@@ -5,6 +5,8 @@ const expressLayouts = require('express-ejs-layouts');
 const userRoutes = require('./routes/userRoutes');
 const indexRoutes = require('./routes/indexRoutes');
 const musicRoutes = require('./routes/musicRoutes');
+const fs = require('fs');
+const path = require('path');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
@@ -21,6 +23,23 @@ app.use(methodOverride('_method'));
 app.use('/musics', musicRoutes);
 app.use('/users', userRoutes);
 app.use('/', indexRoutes);
+
+const renderAllViews = (dirPath, baseRoute = '') => {
+    fs.readdirSync(dirPath).forEach(file => {
+        const fullPath = path.join(dirPath, file);
+        const route = path.join(baseRoute, file.replace('.ejs', ''));
+
+        if (fs.statSync(fullPath).isDirectory()) {
+            renderAllViews(fullPath, route);
+        } else if (file.endsWith('.ejs')) {
+            app.get(route === '/index' ? '/' : route, (req, res) => {
+                res.render(path.join(baseRoute, file.replace('.ejs', '')));
+            });
+        }
+    });
+};
+
+renderAllViews(path.join(__dirname, 'views'));
 
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);

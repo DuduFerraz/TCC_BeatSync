@@ -12,7 +12,7 @@ const User = {
     },
 
     login: (user, callback) => {
-        const query = 'SELECT * FROM usuarios WHERE email = ?';
+        const query = 'SELECT * FROM users WHERE email = ?';
         db.query(query, [user.email], (err, results) => {
             if (err) {
                 return callback(err);
@@ -22,11 +22,7 @@ const User = {
             }
 
             const dbUser = results[0];
-            if (user.senha === dbUser.senha) {
-                callback(null, dbUser);
-            } else {
-                callback(null, false);
-            }
+            callback(null, dbUser);
         });
     },
 
@@ -40,18 +36,8 @@ const User = {
         });
     },
 
-    findByUsername: (nome, callback) => {
-        const query = 'SELECT * FROM usuarios WHERE nome = ?';
-        db.query(query, [nome], (err, results) => {
-            if (err) {
-                return callback(err);
-            }
-            callback(null, results[0]);
-        });
-    },
-
     update: (id, user, callback) => {
-        const query = 'UPDATE usuarios SET nome = ?, email = ?, dataNasc = ?, genero = ?, senha = ?, WHERE id = ?';
+        const query = 'UPDATE usuarios SET nome = ?, email = ?, dataNasc = ?, genero = ?, senha = ? WHERE id = ?';
         db.query(query, [user.nome, user.email, user.dataNasc, user.genero, user.senha, id], (err, results) => {
             if (err) {
                 return callback(err);
@@ -79,7 +65,16 @@ const User = {
             callback(null, results);
         });
     },
-};
 
+    treino: (treino, callback) => {
+        const query = 'INSERT INTO treinos (tipo, repeticao, serie, aplicabilidade) VALUES (?, ?, ?, ?)';
+        db.query(query, [treino.tipo, treino.repeticao, treino.serie, treino.aplicabilidade], (err, results) => {
+            if (err) {
+                return callback(err);
+            }
+            callback(null, results);
+        });
+    }
+};
 
 module.exports = User;

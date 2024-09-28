@@ -1,35 +1,62 @@
 const User = require('../models/userModel');
 
 const userController = {
-    userCadastro: (req, res) => {
-        const newUser = {
-            nome: req.body.nome,
-            email: req.body.email,
-            dataNasc: req.body.dataNasc,
-            genero: req.body.genero,
-            senha: req.body.senha,
-        };
+    userCadastro: async (req, res) => {
+        try {
+            const hashedPassword = await bcrypt.hash(req.body.senha, 10);
+            const newUser = {
+                nome: req.body.nome,
+                email: req.body.email,
+                dataNasc: req.body.dataNasc,
+                genero: req.body.genero,
+                senha: hashedPassword,
+            };
 
-        User.Cadastro(newUser, (err, userId) => {
+            User.Cadastro(newUser, (err, userId) => {
+                if (err) {
+                    return res.status(500).json({ error: err });
+                }
+                res.redirect('/users/treino');
+            });
+        } catch (error) {
+            res.status(500).json({ error: 'Failed to register user' });
+        }
+    },
+
+    userLogin: (req, res) => {
+        const { email, senha } = req.body;
+
+        User.login({ email, senha }, async (err, user) => {
             if (err) {
                 return res.status(500).json({ error: err });
             }
+            if (!user) {
+                return res.status(401).json({ message: 'Invalid email or password' });
+            }
+
+            const isValidPassword = await bcrypt.compare(senha, user.senha);
+            if (!isValidPassword) {
+                return res.status(401).json({ message: 'Invalid email or password' });
+            }
+
             res.redirect('/users/treino');
         });
     },
 
-    userLogin: (req, res) => {
-        const user = {
-            email: req.body.email,
-            senha: req.body.senha,
+    userTreino: (req, res) => {
+        const newTreino = {
+            tipo: req.body.tipo,
+            repeticao: req.body.repeticao,
+            serie: req.body.serie,
+            aplicabilidade: req.body.aplicabilidade,
         };
 
-        User.login(user, (err, userId) => {
+        User.treino(newTreino, (err) => {
             if (err) {
                 return res.status(500).json({ error: err });
             }
-            res.redirect('/users/treino')
-        })
+            res.redirect('/users/playlist');
+        });
     },
 
     getUserById: (req, res) => {
@@ -42,12 +69,12 @@ const userController = {
             if (!user) {
                 return res.status(404).json({ message: 'User not found' });
             }
-            res.render('users/show', { user });
+            res.render('users/perfil', { user });
         });
     },
 
     getAllUsers: (req, res) => {
-        User.getAll((err, user) => {
+        User.getAll((err, users) => {
             if (err) {
                 return res.status(500).json({ error: err });
             }
@@ -58,6 +85,7 @@ const userController = {
     renderCadastroForm: (req, res) => {
         res.render('cadastro');
     },
+
     renderLoginForm: (req, res) => {
         res.render('login');
     },
@@ -76,13 +104,25 @@ const userController = {
         });
     },
 
+    renderTreino: (req, res) => {
+        res.render('users/treino');
+    },
+
+    renderPlaylist: (req, res) => {
+        res.render('users/playlist');
+    },
+
+    renderPerfil: (req, res) => {
+        res.render('users/perfil');
+    },
+
     updateUser: (req, res) => {
         const userId = req.params.id;
         const updatedUser = {
             nome: req.body.nome,
             email: req.body.email,
             dataNasc: req.body.dataNasc,
-            gender: req.body.gender,
+            genero: req.body.genero,
             senha: req.body.senha,
         };
 

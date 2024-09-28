@@ -2,7 +2,7 @@ CREATE DATABASE BeatSync;
 
 USE BeatSync;
 
-CREATE TABLE usuarios (
+CREATE TABLE users (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(35) NOT NULL,
     email VARCHAR(35) NOT NULL,

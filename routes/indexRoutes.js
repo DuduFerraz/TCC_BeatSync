@@ -22,7 +22,7 @@ router.get('/sobreNos', function(req, res){
   res.render('sobreNos', { title: 'Sobre Nos' });
 });
 
-router.get('/cadastro', userController.renderCreateForm);
+router.get('/cadastro', userController.renderCadastroForm);
 router.get('/login', userController.renderLoginForm);
 
 module.exports = router;

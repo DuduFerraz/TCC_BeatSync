@@ -206,7 +206,7 @@ form:hover {
     margin: 10px;
 }
 
-input {
+.input {
     background: none;
     color: rgb(0, 0, 0);
     border-bottom: 1px 1px 1px rgb(255, 255, 255);
@@ -237,4 +237,43 @@ input {
 .botao:hover {
     background-color: rgb(219, 105, 70);
     color: black;
+}
+
+.ficha-completa {
+    display: flex;
+    align-self: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 60%;
+    margin-left: 20%;
+    background-color: #000000;
+    padding: 10px;
+    color: white;
+    height: 300px;
+    margin-top: 60px;
+    transition: 1.5s ease;
+    border-radius: 10px;
+}
+
+.ficha-completa:hover {
+    background-color: #000000;
+    box-shadow: -9px 9px rgba(0, 0, 0, 0.703);
+}
+
+.ficha-completa h1 {
+    justify-content: center;
+    margin-bottom: 20px;
+    display: flex;
+}
+
+.ficha-user {
+    color: #000000;
+}
+
+.ficha-campo th, .ficha-campo td {
+    width: 50%;
+    padding: 10px;
+    background-color: rgb(255, 255, 255); 
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 5px;
 }
