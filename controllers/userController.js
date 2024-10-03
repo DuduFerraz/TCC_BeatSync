@@ -1,26 +1,20 @@
 const User = require('../models/userModel');
 
 const userController = {
-    userCadastro: async (req, res) => {
-        try {
-            const hashedPassword = await bcrypt.hash(req.body.senha, 10);
+    userCadastro: (req, res) => {
             const newUser = {
                 nome: req.body.nome,
                 email: req.body.email,
                 dataNasc: req.body.dataNasc,
                 genero: req.body.genero,
-                senha: hashedPassword,
+                senha: req.body.senha,
             };
-
             User.Cadastro(newUser, (err, userId) => {
                 if (err) {
                     return res.status(500).json({ error: err });
                 }
                 res.redirect('/users/treino');
             });
-        } catch (error) {
-            res.status(500).json({ error: 'Failed to register user' });
-        }
     },
 
     userLogin: (req, res) => {
@@ -46,11 +40,7 @@ const userController = {
     userTreino: (req, res) => {
         const newTreino = {
             tipo: req.body.tipo,
-            repeticao: req.body.repeticao,
-            serie: req.body.serie,
-            aplicabilidade: req.body.aplicabilidade,
-        };
-
+        }
         User.treino(newTreino, (err) => {
             if (err) {
                 return res.status(500).json({ error: err });

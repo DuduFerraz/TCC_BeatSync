@@ -1,13 +1,22 @@
-<form action="user/treino" class="form-treino" method="POST">
-    <select name="tipo" id="tipo">
-        <option value="braço">Braço</option>
-        <option value="perna">Perna</option>
-        <option value="costa">Costas</option>
-        <option value="peito">Peito</option>
-        <option value="ombro">Ombro</option>
-    </select>
-    <input type="number" name="repeticao" placeholder="Repetição" required>
-    <input type="number" name="serie" placeholder="Série" required>
-    <input type="text" name="aplicabilidade" placeholder="Aplicabilidade" required>
-    <button type="submit">Enviar</button>
-</form>
+<main class="main-treino">
+    <div class="form-treino">
+        <form class="form2" action="user/treino" class="form" method="POST">
+            <h2>Cadastro de Treino</h2>
+            <p class="pgtreino">Qual tipo de treino você gostaria de realizar?</p>
+            <div class="fpr-treino">
+                <div class="camp-treino">
+                    <select  class="input1" name="tipo" id="tipo">
+                        <option value="braço">Braço</option>
+                        <option value="perna">Perna</option>
+                        <option value="costa">Costas</option>
+                        <option value="peito">Peito</option>
+                        <option value="ombro">Ombro</option>
+                    </select>
+                </div>
+                <div class="btn">
+                    <button class="botao" type="submit">Enviar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</main>

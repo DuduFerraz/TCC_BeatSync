@@ -277,3 +277,81 @@ form:hover {
     border: 1px solid rgb(0, 0, 0);
     border-radius: 5px;
 }
+
+.main-treino {  
+    display: flex;
+    justify-content: center;
+    height: 70%;
+    align-items: center;
+}
+
+.form-treino {
+    padding: 20px;
+    background-color: #000000;
+    color: rgb(0, 0, 0);border-radius: 10px;
+    font-size:larger;
+    transition: 1s ease;
+    height: auto;
+    padding: 8px;
+}
+
+.form-treino:hover {
+    box-shadow: -9px 9px 5px #20010085;
+}
+
+.camp-treino {
+    background-color: white;
+    margin: 6px;
+    padding: 8px;
+    border-color: white;
+    border-radius: 5px;
+}
+
+.camp-treino select {
+    border: white;
+    font-size: 20px;
+    display: flex;
+}
+
+.input1 {
+    background: none;
+    color: rgb(0, 0, 0);
+    border-bottom: 1px 1px 1px rgb(0, 0, 0);
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    outline: none;
+}
+
+h2 {
+    text-align: center; /* Centraliza o título */
+    margin-bottom: 20px; /* Espaçamento abaixo do título */
+}
+p.pgtreino {
+    text-align: center;
+    font-size: 10;
+    color: white;
+    padding-bottom: 10px;
+    text-decoration: none;
+}
+
+.fpr-treino {
+    justify-content: center;
+}
+
+.form-treino > div {
+    margin-bottom: 15px; /* Espaçamento entre os campos */
+    flex-direction: column;
+    background-color: #000000;
+}
+
+.form2 {
+    background-color: #000000;
+    color: rgb(0, 0, 0);
+    border-radius: 10px;
+    font-size:larger;
+    transition: 1s ease;
+    height: auto;
+    padding: 8px;
+}
+    
