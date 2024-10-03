@@ -1,52 +1,74 @@
-<div class="cards">
-    <div class="carde">
-        <p class="tip"><a href="https://open.spotify.com/embed/playlist/3BnKBgfvdKktEolNauhQTR?utm_source=generator"> Playlist 1</a></p>
-    </div>
-    <div class="carde">
-        <p class="tip"><a href="https://open.spotify.com/embed/playlist/2wLlvBwInlJ9NrZjNLZIdL?utm_source=generator&theme=0">Playlist 2</a></p>
-    </div>
-</div>
 
-<style>
-.cards {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
+  <button>
+    <a href="https://open.spotify.com/embed/playlist/0FS3aUlCo6lV5Uhh74jyGx?utm_source=generator">
+      <span>Playlist 1</span>
+    </a>
+  </button> 
+  <button>
+    <a href="https://open.spotify.com/embed/playlist/2wLlvBwInlJ9NrZjNLZIdL?utm_source=generator">  
+      <span>Playlist 2</span>
+    </a>
+  </button>
+  <button>
+    <a href="https://open.spotify.com/embed/playlist/2FOSuTNoIjeKWBvvFyqJhL?utm_source=generator">  
+      <span>Playlist 3</span>
+    </a>
+  </button> 
+  <button>
+    <a href="https://open.spotify.com/embed/playlist/0jdFUdkzabcP6k5BlAgQmc?utm_source=generator">
+      <span>Playlist 4</span>
+    </a>
+  </button> 
+  <button>
+    <a href="https://open.spotify.com/embed/playlist/3Z4OwMn6GgQxh69hFnXZc4?utm_source=generator">
+      <span>Playlist 5</span>
+    </a>
+  </button>
+
+
+<style> 
+button {
+ display: inline-block;
+ border-radius: 4px;
+ background-color: #000000;
+ border: none;
+ color: #FFFFFF;
+ text-align: center;
+ font-size: 17px;
+ padding-top: 20px;
+ padding: 16px;
+ width: 150px;
+ transition: all 0.5s;
+ cursor: pointer;
+ margin: 5px;
+}
+button a {
+  color: inherit;
   text-decoration: none;
 }
 
-.carde{
-    margin: 20px;
+button span {
+ cursor: pointer;
+ display: inline-block;
+ position: relative;
+ transition: 0.5s;
 }
 
-.cards .carde {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  text-align: center;
-  height: 100px;
-  width: 250px;
-  border-radius: 10px;
-  color: white;
-  cursor: pointer;
-  transition: 400ms;
-  background-color: black;
-  text-decoration: none;
+button span:after {
+ content: '»';
+ position: absolute;
+ opacity: 0;
+ top: 0;
+ right: -15px;
+ transition: 0.5s;
 }
 
-.cards .card p.tip {
-  font-weight: 600;
-  color: white;
-  font-size: 25px;
+button:hover span {
+ padding-right: 15px;
 }
 
-.cards .card:hover {
-  transform: scale(1.1, 1.1);
-}
-
-.cards:hover > .carde:not(:hover) {
-  filter: blur(10px);
-  transform: scale(0.9, 0.9);
+button:hover span:after {
+ opacity: 1;
+ right: 0;
 }
 </style>

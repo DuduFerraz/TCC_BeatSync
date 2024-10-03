@@ -14,7 +14,7 @@ CREATE TABLE users (
 CREATE TABLE treino (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(35) NOT NULL,
-    descricao VARCHAR(35) NOT NULL,
+    descricao VARCHAR(35) NOT NULL
 );
 
 CREATE TABLE musics (

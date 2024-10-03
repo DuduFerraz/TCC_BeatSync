@@ -28,7 +28,7 @@ const userController = {
                 return res.status(401).json({ message: 'Invalid email or password' });
             }
 
-            const isValidPassword = await bcrypt.compare(senha, user.senha);
+            const isValidPassword = (senha, user.senha);
             if (!isValidPassword) {
                 return res.status(401).json({ message: 'Invalid email or password' });
             }

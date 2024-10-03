@@ -5,7 +5,6 @@ const router = express.Router();
 router.get('/treino', userController.renderTreino);
 router.get('/perfil', userController.renderPerfil);
 router.get('/playlist', userController.renderPlaylist);
-
 router.get('/', userController.getAllUsers);
 router.post('/cadastro', userController.userCadastro);
 router.post('/login', userController.userLogin);
