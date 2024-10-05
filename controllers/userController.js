@@ -25,12 +25,12 @@ const userController = {
                 return res.status(500).json({ error: err });
             }
             if (!user) {
-                return res.status(401).json({ message: 'Invalid email or password' });
+                return res.status(401).json({ message: 'Seu e-mail ou senha estão incorretos!' });
             }
 
             const isValidPassword = (senha, user.senha);
             if (!isValidPassword) {
-                return res.status(401).json({ message: 'Invalid email or password' });
+                return res.status(401).json({ message: 'E-mail ou senha invalidos!' });
             }
 
             res.redirect('/users/treino');
