@@ -92,7 +92,7 @@ main {
 
 .barra {
     width: 60vw;
-    background-color:#3a0808;
+    background-color:#000000;
     border-radius: 50px;
     display: flex;
     justify-content: center;
@@ -139,15 +139,22 @@ main {
 
 
 footer {
+    display: flex;
     background-color: rgb(0, 0, 0);
     padding: 16px;
     position: fixed;
     width: 100%;
-    bottom: 0;
+    bottom: 0;  
 }
-.wrapper {
-    flex-direction: column;
+.text-fote {
+    padding-top: 20px;
+    padding-left: 400px;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    color: white;
 }
+
 #redes {
     width: 30px;
     height: 30px;
