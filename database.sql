@@ -13,14 +13,6 @@ CREATE TABLE users (
 
 CREATE TABLE treino (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    tipo ENUM('braço','perna','costa','peito','ombro',) NOT NULL
+    tipo ENUM('PeitoTriceps','CostasBiceps','OmbroAbdomen','Perna','Cardio',) NOT NULL
 );
 
-CREATE TABLE musics (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    nome VARCHAR(500) NOT NULL,
-    gender VARCHAR(500) NOT NULL,
-    artist VARCHAR(500) NOT NULL,
-    album VARCHAR(500) NOT NULL,
-    link_url VARCHAR(500)
-);

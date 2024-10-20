@@ -4,7 +4,6 @@ const methodOverride = require('method-override');
 const expressLayouts = require('express-ejs-layouts');
 const userRoutes = require('./routes/userRoutes');
 const indexRoutes = require('./routes/indexRoutes');
-const musicRoutes = require('./routes/musicRoutes');
 const fs = require('fs');
 const path = require('path');
 const app = express();
@@ -20,7 +19,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(methodOverride('_method'));
 
-app.use('/musics', musicRoutes);
+
 app.use('/users', userRoutes);
 app.use('/', indexRoutes);
 
