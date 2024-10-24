@@ -1,5 +1,7 @@
 const express = require('express');
-const userController = require('../controllers/userController');
+const cadastroController = require('../controllers/cadastroController');
+const loginController = require('../controllers/loginController');
+const treinoController = require('../controllers/treinoController');
 const router = express.Router();
 
 router.get('/', function(req, res) {
@@ -22,7 +24,7 @@ router.get('/sobreNos', function(req, res){
   res.render('sobreNos', { title: 'Sobre Nos' });
 });
 
-router.get('/cadastro', userController.renderCadastroForm);
-router.get('/login', userController.renderLoginForm);
+router.get('/cadastro', cadastroController.renderCadastroForm);
+router.get('/login', loginController.renderLoginForm);
 
 module.exports = router;

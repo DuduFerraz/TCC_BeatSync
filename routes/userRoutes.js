@@ -1,11 +1,15 @@
 const express = require('express');
-const userController = require('../controllers/userController');
+const cadastroController = require('../controllers/cadastroController');
+const loginController = require('../controllers/loginController');
+const treinoController = require('../controllers/treinoController');
+const perfilController = require('../controllers/perfilController');
 const router = express.Router();
 
-router.get('/treino', userController.renderTreino);
-router.get('/perfil', userController.renderPerfil);
-router.get('/playlist', userController.renderPlaylist);
-router.post('/cadastro', userController.userCadastro);
-router.post('/login', userController.userLogin);
+router.get('/exercicio', treinoController.renderExercicio);
+router.post('/exercicio', treinoController.userExercicio);
+router.get('/perfil', perfilController.renderPerfil);
+router.get('/playlist', cadastroController.renderPlaylist);
+router.post('/cadastro', cadastroController.userCadastro);
+router.post('/login', loginController.userLogin);
 
 module.exports = router;

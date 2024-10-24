@@ -1,0 +1,21 @@
+<main class="main-treino">
+    <div class="form-treino">
+        <form class="form2" method="POST" action="/users/treino"> <!-- Submete para a rota correta -->
+            <h2>Cadastro de Treino</h2>
+            <p class="pgtreino">Qual tipo de treino você gostaria de realizar?</p>
+            <div class="fpr-treino">
+                <div class="camp-treino">
+                    <select class="input1" name="tipo" id="opcoes" onchange="mostrarConteudo()">
+                        <option value="musculacao">Musculação</option>
+                        <option value="cardio">Cárdio</option>
+                        <option value="funcional">Funcional</option>
+                        <option value="crossfit">CrossFit</option>
+                    </select>
+                </div>
+                <div class="btn">
+                    <button class="botao" type="submit">Enviar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</main>
