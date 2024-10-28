@@ -19,3 +19,14 @@
         </form>
     </div>
 </main>
+<script>
+    function mostrarConteudo() {
+        // Obter o valor selecionado no <select>
+        const tipoTreino = document.getElementById('opcoes').value;
+
+        // Redirecionar para uma rota específica baseada no valor selecionado
+        if (tipoTreino) {
+            window.location.href = `/views${tipoTreino}`;
+        }
+    }
+</script>

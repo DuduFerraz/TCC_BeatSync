@@ -1,7 +1,6 @@
 const express = require('express');
 const cadastroController = require('../controllers/cadastroController');
 const loginController = require('../controllers/loginController');
-const treinoController = require('../controllers/treinoController');
 const router = express.Router();
 
 router.get('/', function(req, res) {

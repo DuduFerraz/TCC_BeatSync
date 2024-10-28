@@ -22,6 +22,12 @@ const cadastroController = {
     renderPlaylist: (req, res) => {
         res.render('users/playlist');
     },
+    rendertreino: (req, res) => {
+        res.render('users/treino');
+    },
+    renderPerfil: (req, res) => {
+        res.render('users/perfil');
+    },
 
 };
 
