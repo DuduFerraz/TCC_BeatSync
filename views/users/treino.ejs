@@ -1,15 +1,15 @@
 <main class="main-treino">
     <div class="form-treino">
-        <form class="form2" method="POST" action="/users/treino"> <!-- Submete para a rota correta -->
+        <form class="form2" onsubmit="mostrarConteudo(event)"> <!-- Submete para a rota correta -->
             <h2>Cadastro de Treino</h2>
             <p class="pgtreino">Qual tipo de treino você gostaria de realizar?</p>
             <div class="fpr-treino">
                 <div class="camp-treino">
-                    <select class="input1" name="tipo" id="opcoes" onchange="mostrarConteudo()">
-                        <option value="musculacao">Musculação</option>
-                        <option value="cardio">Cárdio</option>
-                        <option value="funcional">Funcional</option>
-                        <option value="crossfit">CrossFit</option>
+                    <select class="input1" name="tipo" id="opcoes">
+                        <option id="opcoes" value="1">Musculação</option>
+                        <option id="opcoes" value="2">Cárdio</option>
+                        <option id="opcoes" value="3">Funcional</option>
+                        <option id="opcoes" value="4">CrossFit</option>
                     </select>
                 </div>
                 <div class="btn">
@@ -20,13 +20,22 @@
     </div>
 </main>
 <script>
-    function mostrarConteudo() {
+    function mostrarConteudo(event) {
+        // Evita o envio padrão do formulário
+        event.preventDefault();
+
         // Obter o valor selecionado no <select>
-        const tipoTreino = document.getElementById('opcoes').value;
+        const opcoes = document.getElementById('opcoes').value;
 
         // Redirecionar para uma rota específica baseada no valor selecionado
-        if (tipoTreino) {
-            window.location.href = `/views${tipoTreino}`;
+        if (opcoes == 1) {
+            window.location.href = '/musculacao';
+        } else if (opcoes == 2) {
+            window.location.href = '/cardio';
+        } else if (opcoes == 3) {
+            window.location.href = '/funcional';
+        } else if (opcoes == 4) {
+            window.location.href = '/cross';
         }
     }
 </script>

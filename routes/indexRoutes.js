@@ -23,6 +23,20 @@ router.get('/sobreNos', function(req, res){
   res.render('sobreNos', { title: 'Sobre Nos' });
 });
 
+router.get('/musculacao', function(req, res){
+  res.render('Musculacao', { title: 'Exercícios para Musculação' });
+});
+router.get('/funcional', function(req, res){
+  res.render('Funcional', { title: 'Exercícios para Funcional' });
+});
+router.get('/cardio', function(req, res){
+  res.render('Cardio', { title: 'Exercícios para Cárido' });
+});
+router.get('/cross', function(req, res){
+  res.render('CrossFit', { title: 'Exercícios para CrossFit' });
+});
+
+
 router.get('/cadastro', cadastroController.renderCadastroForm);
 router.get('/login', loginController.renderLoginForm);
 
