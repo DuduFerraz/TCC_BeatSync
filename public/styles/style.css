@@ -353,4 +353,33 @@ p.pgtreino {
     height: auto;
     padding: 8px;
 }
-    
+
+/* início do style de tabela de treino*/
+.titulo-table {
+        text-align: center;
+        margin-bottom: 5px;
+    }
+    .table-treino {
+        background-color: black;
+        border: 1px solid rgb(0, 0, 0);
+        justify-content: center;
+    }
+    th {
+        color: white;
+        padding: 10px;
+        border: 1px solid rgb(255, 255, 255);
+    }
+    td {
+        text-align: center;
+        color: white;
+        padding: 15px;
+        border: 1px solid rgb(255, 255, 255);
+    }
+    .table-conjunto {
+        justify-content: center;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        height: 60%;
+    }
+/*fim do style de tabela de treinos*/
