@@ -1,0 +1,36 @@
+
+    <div id="forPlay">
+        <iframe style= "border-radius:12px" src="https://open.spotify.com/embed/playlist/26JM1CNlCRrLBuOwIDl0Z5?utm_source=generator&theme=0" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+    </div>
+
+
+<style>
+    main {
+            background-color: rgba(0, 0, 0, 0.671); 
+        }
+        #forPlay {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 0 9px rgba(255, 255, 255, 0.8);
+            border-radius: 13px;
+            opacity: 0; 
+            animation: aparecer 3s forwards; 
+        }
+
+        @keyframes aparecer {
+            0% {
+                opacity: 0;
+                transform: scale(0.8); 
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1); 
+            }
+        }
+
+        iframe {
+            width: 80vw;
+            height: 63vh;
+        }
+</style>

@@ -11,13 +11,15 @@
                       <option id="opcoes" value="3">Funcional</option>
                       <option id="opcoes" value="4">CrossFit</option>
                   </select>
-                  <select class="input2" name="play" id="playlists">
-                    <option id="opcoes" value="1">Funk/Phonk/Pop</option>
-                    <option id="opcoes" value="2">Phonk/Metal/Pop</option>
-                    <option id="opcoes" value="3">Eletro/Hip-Hop/Metal</option>
-                    <option id="opcoes" value="4">Hip-Hop/Metal/Pop</option>
-                </select>
               </div>
+              <div class="camp-treino">
+                <select class="input2" name="play" id="playlists">
+                    <option id="playlists" value="a1">Funk/Phonk/Pop</option>
+                    <option id="playlists" value="a2">Phonk/Metal/Pop</option>
+                    <option id="playlists" value="a3">Eletro/Hip-Hop/Metal</option>
+                    <option id="playlists" value="a4">Hip-Hop/Metal/Pop</option>
+                </select>
+            </div>
               <div class="btn">
                   <button class="botao" type="submit">Enviar</button>
               </div>
@@ -34,14 +36,17 @@
       const playlists = document.getElementById('playlists').value;
 
       // Redirecionar para uma rota específica baseada no valor selecionado
-      if (playlists == 1) {
-          window.location.href = '/musculacao';
-      } else if (opcoes == 2) {
-          window.location.href = '/cardio';
-      } else if (opcoes == 3) {
-          window.location.href = '/funcional';
-      } else if (opcoes == 4) {
-          window.location.href = '/cross';
+      if (playlists == 'a1') {
+          window.location.href = '/funk_phonk_pop';
+
+      } else if (playlists == 'a2') {
+          window.location.href = '/phonk_metal_pop';
+
+      } else if (playlists == 'a3') {
+          window.location.href = '/eletro_hiphop_metal';
+
+      } else if (playlists == 'a4') {
+          window.location.href = '/hiphop_metal_pop';
       }
   }
 
