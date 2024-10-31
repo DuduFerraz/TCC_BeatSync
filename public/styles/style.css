@@ -322,6 +322,16 @@ form:hover {
     outline: none;
 }
 
+.input2 {
+    background: none;
+    color: rgb(0, 0, 0);
+    border-bottom: 1px 1px 1px rgb(0, 0, 0);
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    outline: none;
+}
+
 h2 {
     text-align: center; /* Centraliza o título */
     margin-bottom: 20px; /* Espaçamento abaixo do título */

@@ -24,17 +24,37 @@ router.get('/sobreNos', function(req, res){
 });
 
 router.get('/musculacao', function(req, res){
-  res.render('Musculacao', { title: 'Exercícios para Musculação' });
+  res.render('musculacao', { title: 'Exercícios para Musculação' });
 });
+
 router.get('/funcional', function(req, res){
-  res.render('Funcional', { title: 'Exercícios para Funcional' });
+  res.render('funcional', { title: 'Exercícios para Funcional' });
 });
+
 router.get('/cardio', function(req, res){
-  res.render('Cardio', { title: 'Exercícios para Cárido' });
+  res.render('cardio', { title: 'Exercícios para Cárido' });
 });
+
 router.get('/cross', function(req, res){
-  res.render('Cross', { title: 'Exercícios para CrossFit' });
+  res.render('cross', { title: 'Exercícios para CrossFit' });
 });
+
+router.get('/eletro_hiphop_metal', function(req, res){
+  res.render('eletro_hiphop_metal');
+});
+
+router.get('/funk_phonk_pop', function(req, res){
+  res.render('funk_phonk_pop');
+});
+
+router.get('/hiphop_metal_pop', function(req, res){
+  res.render('hiphop_metal_pop');
+});
+
+router.get('/phonk_metal_pop', function(req, res){
+  res.render('phonk_metal_pop');
+});
+
 router.get('/cadastro', cadastroController.renderCadastroForm);
 router.get('/login', loginController.renderLoginForm);
 
