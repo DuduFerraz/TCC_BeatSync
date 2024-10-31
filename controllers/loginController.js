@@ -5,7 +5,7 @@ const loginController = {
     userLogin: (req, res) => {
         const { email, senha } = req.body;
 
-        User.login({ email, senha }, async (err, Usuarios) => {
+        User.login({ email, senha }, async (err, usuarios) => {
             if (err) {
                 return res.status(500).json({ error: err });
             }
@@ -13,7 +13,7 @@ const loginController = {
                 return res.status(401).json({ message: 'Seu e-mail ou senha estão incorretos!' });
             }
 
-            const isValidPassword = (senha, user.senha);
+            const isValidPassword = (senha, usuarios.senha);
             if (!isValidPassword) {
                 return res.status(401).json({ message: 'E-mail ou senha invalidos!' });
             }
@@ -22,7 +22,7 @@ const loginController = {
         });
     },
     renderLoginForm: (req, res) => {
-        res.render('login');
+        res.render('/login');
     },
 };
 

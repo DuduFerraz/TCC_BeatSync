@@ -9,11 +9,11 @@ const cadastroController = {
                 genero: req.body.genero,
                 senha: req.body.senha,
             };
-            User.Cadastro(newUser, (err, Usuariosid) => {
+            User.Cadastro(newUser, (err, Userid) => {
                 if (err) {
                     return res.status(500).json({ error: err });
                 }
-                res.redirect('/users/perfil');
+                res.redirect('/login');
             });
     },
     renderCadastroForm: (req, res) => {

@@ -1,18 +1,18 @@
 const db = require('../config/db');
 
 const User = {
-    Cadastro: (Usuarios, callback) => {
-        const query = 'INSERT INTO Usuarios (nome, email, data_nasc, genero, senha) VALUES (?, ?, ?, ?, ?)';
-        db.query(query, [Usuarios.nome, Usuarios.email, Usuarios.data_nasc, Usuarios.genero, Usuarios.senha], (err, results) => {
+    Cadastro: (usuarios, callback) => {
+        const query = 'INSERT INTO usuarios (nome, email, data_nasc, genero, senha) VALUES (?, ?, ?, ?, ?)';
+        db.query(query, [usuarios.nome, usuarios.email, usuarios.data_nasc, usuarios.genero, usuarios.senha], (err, results) => {
             if (err) {
                 return callback(err);
             }
             callback(null, results.insertId);
         });
     },
-    perfil: (usuario, callback) => {
+    perfil: (usuarios, callback) => {
         const query = 'SELECT * FROM usuarios WHERE nome = ? email = ? data_nasc = ? genero = ?';
-        db.query(query, [usuario.nome, usuario.email, usuario.data_nasc, usuario.genero], (err, results) => {
+        db.query(query, [usuarios.nome, usuarios.email, usuarios.data_nasc, usuarios.genero], (err, results) => {
             if (err) {
                 return callback(err);
             }
