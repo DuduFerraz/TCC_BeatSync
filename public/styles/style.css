@@ -355,7 +355,7 @@ p.pgtreino {
 }
 
 /* início do style de tabela de treino*/
-.titulo-table {
+    .titulo-table {
         text-align: center;
         margin-bottom: 5px;
     }
@@ -363,6 +363,8 @@ p.pgtreino {
         background-color: black;
         border: 1px solid rgb(0, 0, 0);
         justify-content: center;
+        width: 60%;
+        height: 60%;
     }
     th {
         color: white;
@@ -381,5 +383,22 @@ p.pgtreino {
         align-items: center;
         flex-direction: column;
         height: 60%;
+        margin-top: 20px;
     }
 /*fim do style de tabela de treinos*/
+
+/*Style do botão de voltar e exemplo nos treinos*/
+    .volta-categoria {
+        font-size: 25px;
+        align-items: center;
+        padding: 15px;
+        background-color: black;
+        border-radius: 7px;
+        color: white;
+    }
+    .conjunto-botao {
+        justify-content: space-around;
+        display: flex;
+        margin-top: 10px;
+    }
+/*Fim do style do botão de voltar e exemplo dos treinos*/

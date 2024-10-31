@@ -33,10 +33,8 @@ router.get('/cardio', function(req, res){
   res.render('Cardio', { title: 'Exercícios para Cárido' });
 });
 router.get('/cross', function(req, res){
-  res.render('CrossFit', { title: 'Exercícios para CrossFit' });
+  res.render('Cross', { title: 'Exercícios para CrossFit' });
 });
-
-
 router.get('/cadastro', cadastroController.renderCadastroForm);
 router.get('/login', loginController.renderLoginForm);
 
