@@ -1,22 +1,10 @@
-<div class="ficha-completa">
-    <h1>Ficha de Usuário</h1>
-    <table class="ficha-user">
-        
-        <tr class="ficha-campo">
-            <th>Nome:</th>
-            <td><%= user.nome %></td> 
-        </tr>
-        <tr class="ficha-campo">
-            <th>E-mail:</th>
-            <td><%= user.email %></td>
-        </tr>
-        <tr class="ficha-campo">
-            <th>Data de Nascimento:</th>
-            <td><%= user.dataNasc %></td>
-        </tr>   
-        <tr class="ficha-campo">
-            <th>Genêro:</th>
-            <td><%= user.genero %></td> 
-        </tr>
-    </table>
-</div>
+<!-- perfil.ejs -->
+<main>
+    <div class="profile">
+        <h2>Perfil do Usuário</h2>
+        <p><strong>Nome:</strong> <%= userName %></p>
+        <p><strong>Email:</strong> <%= userEmail %></p>
+        <!-- Você pode adicionar mais campos, como endereço, telefone, etc., se necessário -->
+        <a href="/logout">Sair</a>
+    </div>
+</main>

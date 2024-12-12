@@ -12,9 +12,9 @@ const User = {
             }
 
             const dbUser = results[0];
-            callback(null, dbUser);
+            callback(null, dbUser); // Retorna o usuário encontrado no banco de dados
         });
     },
 };
 
-module.exports = User;
+module.exports = User; // Certifique-se de exportar corretamente

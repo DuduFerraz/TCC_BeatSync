@@ -1,0 +1,76 @@
+const express = require('express');
+const bcrypt = require('bcrypt'); // Usado para proteger as senhas.
+const jwt = require('jsonwebtoken'); // Gera e verifica tokens de autenticação.
+const db = require('../db'); // Importa o banco de dados.
+
+const router = express.Router();
+
+// Registro de usuários
+router.post('/register', async (req, res) => {
+    const { username, password } = req.body;
+
+    try {
+        // Verifica se o usuário já existe
+        const [rows] = await db.query('SELECT * FROM users WHERE username = ?', [username]);
+        if (rows.length > 0) {
+            return res.status(400).json({ message: 'Usuário já existe' });
+        }
+
+        // Gera um hash para a senha
+        const hashedPassword = await bcrypt.hash(password, 10);
+        
+        // Insere o usuário no banco
+        await db.query('INSERT INTO users (username, password) VALUES (?, ?)', [username, hashedPassword]);
+        res.status(201).json({ message: 'Usuário registrado com sucesso!' });
+    } catch (error) {
+        res.status(500).json({ message: 'Erro ao registrar o usuário', error });
+    }
+});
+
+// Login de usuários
+router.post('/login', async (req, res) => {
+    const { username, password } = req.body;
+
+    try {
+        // Busca o usuário pelo nome
+        const [rows] = await db.query('SELECT * FROM users WHERE username = ?', [username]);
+        if (rows.length === 0) {
+            return res.status(400).json({ message: 'Usuário não encontrado' });
+        }
+
+        const user = rows[0];
+
+        // Compara a senha fornecida com a armazenada
+        const isPasswordValid = await bcrypt.compare(password, user.password);
+        if (!isPasswordValid) {
+            return res.status(400).json({ message: 'Senha incorreta' });
+        }
+
+        // Gera o token JWT
+        const token = jwt.sign({ id: user.id, username: user.username }, process.env.JWT_SECRET, {
+            expiresIn: '1h',
+        });
+
+        res.json({ message: 'Login bem-sucedido', token });
+    } catch (error) {
+        res.status(500).json({ message: 'Erro ao fazer login', error });
+    }
+});
+
+// Rota protegida
+router.get('/protected', (req, res) => {
+    const token = req.headers['authorization'];
+
+    if (!token) {
+        return res.status(401).json({ message: 'Token não fornecido' });
+    }
+
+    try {
+        const decoded = jwt.verify(token, process.env.JWT_SECRET);
+        res.json({ message: 'Acesso concedido', user: decoded });
+    } catch (error) {
+        res.status(401).json({ message: 'Token inválido' });
+    }
+});
+
+module.exports = router;

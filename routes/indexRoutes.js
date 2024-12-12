@@ -1,21 +1,35 @@
 const express = require('express');
 const cadastroController = require('../controllers/cadastroController');
 const loginController = require('../controllers/loginController');
+const authMiddleware = require('../middleware/authMiddleware');
+const logoutController = require('../controllers/logoutController');
 const router = express.Router();
 
 router.get('/', function(req, res) {
   res.render('index',{ title: 'BeatSync' });
   });
 
-router.get('/perfil', function(req, res){
-  res.render('perfil', { title: 'Perfil' });
+// indexRoutes.js
+
+router.get('/perfil', authMiddleware, (req, res) => {
+  // Obter os dados do usuário da sessão
+  const { userName, userEmail } = req.session;
+
+  // Passar os dados para a view de perfil
+  res.render('perfil', { 
+      title: 'Perfil',
+      userName,
+      userEmail
+  });
 });
 
-router.get('/playlist', function(req, res){
+
+
+router.get('/playlist', authMiddleware, (req, res) => {
   res.render('playlist', { title: 'Playlist' });
 });
 
-router.get('/treino', function(req, res){
+router.get('/treino', authMiddleware, (req, res) => {
   res.render('treino', { title: 'Treino' });
 });
 
@@ -39,7 +53,15 @@ router.get('/cross', function(req, res){
   res.render('cross', { title: 'Exercícios para CrossFit' });
 });
 
+router.get('/login', (req, res) => {
+  console.log("Chegou na rota de login!");
+  loginController.renderLoginForm(req, res);
+});
+
+router.get('/logout', logoutController.logout);
+
 router.get('/cadastro', cadastroController.renderCadastroForm);
 router.get('/login', loginController.renderLoginForm);
+router.post('/login', loginController.userLogin);
 
 module.exports = router;
