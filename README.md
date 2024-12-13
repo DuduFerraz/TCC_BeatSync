@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # User Management System
 
 Este é um sistema de gerenciamento de usuários desenvolvido com Node.js, Express e MySQL. Ele permite a criação, leitura, atualização e exclusão (CRUD) de usuários, com uma interface web para administradores e usuários.
@@ -72,3 +73,6 @@ Sinta-se à vontade para contribuir com melhorias ou correções. Abra uma issue
 Licença
 
 Este projeto é licenciado sob a MIT License.
+=======
+# TCC_BeatSync
+>>>>>>> 32a4962fd6e540e981894802de49423291459356
