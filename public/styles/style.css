@@ -436,14 +436,16 @@ p.pgtreino {
 
     th {
         color: rgb(0, 0, 0);
-        border: 2px solid rgb(0, 0, 0);
+        border: 1.5px solid rgb(0, 0, 0);
         font-weight: bolder;
         background-color:  #8d2825;
     }
     td {
+        padding-left: 3PX;
+        padding-right: 3PX;
         text-align: center;
         color: rgb(0, 0, 0);
-        border: 2px solid rgb(0, 0, 0);
+        border: 1.5px solid rgb(0, 0, 0);
         font-weight: bolder;
         background-color: #ffffff;
     }
@@ -483,7 +485,7 @@ button {
     font-size: 17px;
     padding-top: 20px;
     padding: 16px;
-    width: 150px;
+    width: 80px;
     transition: all 0.5s;
     cursor: pointer;
     margin: 5px;
