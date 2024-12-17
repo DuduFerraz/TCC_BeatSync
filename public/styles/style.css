@@ -374,6 +374,10 @@ form:hover {
     outline: none;
 }
 
+h2 {
+    text-align: center; /* Centraliza o título */
+    margin-bottom: 20px; /* Espaçamento abaixo do título */
+}
 
 /* INPUT PARA SELEÇÃO DE PLAYLIST */
 .input2 {
@@ -384,11 +388,6 @@ form:hover {
     border-left: none;
     border-right: none;
     outline: none;
-}
-
-h2 {
-    text-align: center; /* Centraliza o título */
-    margin-bottom: 20px; /* Espaçamento abaixo do título */
 }
 
 /* --------------------------------------------------------------------------------------------------------------------------------------------- */
@@ -422,24 +421,21 @@ p.pgtreino {
 }
 
 /* início do style de tabela de treino*/
-    .titulo-table {
-        align-items: start;
-        margin-bottom: 5px;
-        font-weight: bolder;
-        margin-top: 10px;
-        margin-left: 190px;
-    }
+    
     .table-treino {
         background-color: #000000;
         border: 1px solid rgb(0, 0, 0);
-        justify-content: center;
         width: 80%;
-        height: 70%;
+        height: 40%;
+        justify-content: center;
     }
+
+    .titulo-table {
+        text-align: start;
+    }
+
     th {
         color: rgb(0, 0, 0);
-        padding: 6px;
-        font-size: 20px;
         border: 2px solid rgb(0, 0, 0);
         font-weight: bolder;
         background-color:  #8d2825;
@@ -447,8 +443,6 @@ p.pgtreino {
     td {
         text-align: center;
         color: rgb(0, 0, 0);
-        padding: 15px;
-        font-size: 20px;
         border: 2px solid rgb(0, 0, 0);
         font-weight: bolder;
         background-color: #ffffff;
@@ -458,8 +452,6 @@ p.pgtreino {
         display: flex;
         align-items: center;
         flex-direction: column;
-        height: auto;
-        margin-top: auto;
     }
 /*fim do style de tabela de treinos*/
 
@@ -471,79 +463,44 @@ p.pgtreino {
         width: 150px;
         border: #000000;
         background-color: black;
-        border-radius: 7px;
+        border-radius: 5px;
         color: white;
     }
     .conjunto-botao {
         justify-content: space-around;
         display: flex;
-        margin-top: 30px;
+        margin-top: 10px;
     }
-    .conjunto-botao span {
-        cursor: pointer;
-        display: inline-block;
-        position: relative;
-        transition: 0.5s;
-       }
-       .conjunto-botao span:after {
-        content: '»';
-        position: absolute;
-        opacity: 0;
-        top: 0;
-        right: -15px;
-        transition: 0.5s;
-       }.conjunto-botao:hover span {
-        padding-right: 15px;
-       }
-       .conjunto-botao:hover span:after {
-        opacity: 1;
-        right: 0;
-       }
-/*Fim do style do botão de voltar e exemplo dos treinos*/
 
-/* Início dos botões de exemplos internos da tabela de treino*/
-.btn-interno-table {
+
+button {
     display: inline-block;
-    border-radius: 30px;
+    border-radius: 4px;
     background-color: #000000;
     border: none;
-    color: #ffffff;
+    color: #FFFFFF;
     text-align: center;
     font-size: 17px;
-    padding: 15px;
-    width: 50px;
+    padding-top: 20px;
+    padding: 16px;
+    width: 150px;
     transition: all 0.5s;
     cursor: pointer;
+    margin: 5px;
    }
-.btn-interno-table a {
-    color: inherit;
-    text-decoration: none;
+   button a {
+     color: inherit;
+     text-decoration: none;
    }
-/* Fim do estilo dos botões de exemplos internos da tabela de treino*/
-
-/* Início do estilo dos botões de playlist*/
-.btn-playlist{
-    font-size: 25px;
-    align-items: center;
-    padding: 10px;
-    width: 150px;
-    border: #000000;
-    background-color: black;
-    border-radius: 7px;
-    color: white;
-}
-#playlist {
-    justify-content: space-around;
-    display: flex;
-    margin-top: 30px;
-}
-#playlist span {
+   
+   button span {
     cursor: pointer;
     display: inline-block;
     position: relative;
     transition: 0.5s;
    }
-#playlist span:after {
+   
+   button span:after {
     content: '»';
     position: absolute;
     opacity: 0;
@@ -551,33 +508,12 @@ p.pgtreino {
     right: -15px;
     transition: 0.5s;
    }
-#playlist:hover span {
+   
+   button:hover span {
     padding-right: 15px;
    }
-#playlist:hover span:after {
+   
+   button:hover span:after {
     opacity: 1;
     right: 0;
    }
-/* Fim do estilo dos botões de playlist*/
-
-/* Início do estilo dos botões dos iframe das playlist*/
-.btn-interno-playframe {
-    display: flex;
-    border-radius: 10px;
-    background-color: #000000;
-    border: none;
-    color: #ffffff;
-    text-align: center;
-    font-size: 30px;
-    padding: 15px;
-    width: 70px;
-    transition: all 0.5s;
-    cursor: pointer;
-    height: 85%;
-    padding-top: 557px;
-   }
-.btn-interno-playframe a {
-    color: inherit;
-    text-decoration: none;
-   }
-/* Fim do estilo dos botões dos iframe das playlist*/
