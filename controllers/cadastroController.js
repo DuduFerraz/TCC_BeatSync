@@ -48,7 +48,16 @@ const cadastroController = {
 
     // Renderiza a página de perfil do usuário (se necessário)
     renderPerfil: (req, res) => {
-        res.render('users/perfil');
+
+        module.exports.renderPerfil = (req, res) => {
+            // A lógica de renderização deve ser feita no arquivo de rotas (indexRoutes.js)
+            res.render('users/perfil', {
+              title: 'Perfil',
+              userNome: req.session.userNome,
+              userEmail: req.session.userEmail,
+              userData_nasc: req.session.userData_nasc
+            });
+          };
     },
 };
 

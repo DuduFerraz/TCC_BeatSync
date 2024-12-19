@@ -12,14 +12,22 @@ router.get('/', function(req, res) {
 // indexRoutes.js
 
 router.get('/perfil', authMiddleware, (req, res) => {
-  // Obter os dados do usuário da sessão
-  const { userName, userEmail } = req.session;
+  // Verifique os dados na sessão
+  console.log(req.session);  // Veja se os dados estão na sessão
+  
+  const { userNome, userEmail, userData_nasc } = req.session;
+  
+  // Se não houver dados na sessão, redireciona
+  if (!userNome || !userEmail) {
+    return res.redirect('/login');
+  }
 
-  // Passar os dados para a view de perfil
-  res.render('perfil', { 
-      title: 'Perfil',
-      userName,
-      userEmail
+  // Passar os dados para a view
+  res.render('users/perfil', { 
+    title: 'Perfil',
+    userNome,
+    userEmail,
+    userData_nasc
   });
 });
 
