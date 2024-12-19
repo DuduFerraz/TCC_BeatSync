@@ -46,7 +46,7 @@ app.use((req, res, next) => {
 // Definindo as rotas
 app.use('/users', userRoutes);
 app.use('/', indexRoutes);
-app.use('/', playRoutes);
+app.use('/play', playRoutes);
 
 // Função para renderizar todas as views dinamicamente (caso precise)
 const renderAllViews = (dirPath, baseRoute = '') => {

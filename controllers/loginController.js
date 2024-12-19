@@ -5,7 +5,7 @@ const loginController = {
     userLogin: (req, res) => {
         const { email, senha } = req.body;
 
-        User.login({ email }, async (err, usuarios) => {
+        User.login({ email, senha }, async (err, usuarios) => {
             if (err) {
                 return res.status(500).json({ error: err });
             }
@@ -13,8 +13,7 @@ const loginController = {
             if (!usuarios) {
                 return res.status(401).json({ message: 'Usuário não encontrado!' });
             }
-
-            // Salvar informações do usuário na sessão
+            
             req.session.userId = usuarios.id;
             req.session.userName = usuarios.nome;
             req.session.userEmail = usuarios.email;

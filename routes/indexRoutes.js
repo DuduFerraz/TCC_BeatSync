@@ -12,32 +12,19 @@ router.get('/', function(req, res) {
 // indexRoutes.js
 
 router.get('/perfil', authMiddleware, (req, res) => {
-  // Verifique os dados na sessão
-  console.log(req.session);  // Veja se os dados estão na sessão
-  
-  const { userNome, userEmail, userData_nasc } = req.session;
-  
-  // Se não houver dados na sessão, redireciona
-  if (!userNome || !userEmail) {
-    return res.redirect('/login');
-  }
+  res.redirect('/login');
+});
 
-  // Passar os dados para a view
-  res.render('users/perfil', { 
-    title: 'Perfil',
-    userNome,
-    userEmail,
-    userData_nasc
-  });
+router.get('/perfil', function(req, res){
+  res.render('perfil', { title: 'perfil' });
 });
 
 
-
-router.get('/playlist', authMiddleware, (req, res) => {
+router.get('/playlist', function(req, res) {
   res.render('playlist', { title: 'Playlist' });
 });
 
-router.get('/treino', authMiddleware, (req, res) => {
+router.get('/treino', function(req, res) {
   res.render('treino', { title: 'Treino' });
 });
 
@@ -59,11 +46,6 @@ router.get('/cardio', function(req, res){
 
 router.get('/cross', function(req, res){
   res.render('cross', { title: 'Exercícios para CrossFit' });
-});
-
-router.get('/login', (req, res) => {
-  console.log("Chegou na rota de login!");
-  loginController.renderLoginForm(req, res);
 });
 
 router.get('/logout', logoutController.logout);
