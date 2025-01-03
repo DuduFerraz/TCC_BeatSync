@@ -1,24 +1,28 @@
 const User = require('../models/loginModel');
-const bcrypt = require('bcrypt');
 
 const loginController = {
     userLogin: (req, res) => {
         const { email, senha } = req.body;
 
-        User.login({ email, senha }, async (err, usuarios) => {
+        console.log(`Tentativa de login com email: ${email}`); // Log do email fornecido
+
+        User.login({ email, senha }, (err, usuario) => {
             if (err) {
-                return res.status(500).json({ error: err });
+                console.error('Erro na consulta ao banco de dados:', err);
+                req.flash('error_msg', 'Erro no servidor.');
+                return res.redirect('/login');
             }
 
-            if (!usuarios) {
-                return res.status(401).json({ message: 'Usuário não encontrado!' });
+            if (!usuario) {
+                console.log('Usuário não encontrado ou senha incorreta.');
+                req.flash('error_msg', 'Credenciais inválidas.');
+                return res.redirect('/login');
             }
-            
-            req.session.userId = usuarios.id;
-            req.session.userName = usuarios.nome;
-            req.session.userEmail = usuarios.email;
-            req.flash('success_msg', 'Você está logado!');
 
+            console.log(`Usuário autenticado: ID = ${usuario.id}, Email = ${usuario.email}`);
+            req.session.userId = usuario.id;
+            req.session.userEmail = usuario.email;
+            req.flash('success_msg', 'Login realizado com sucesso!');
             res.redirect('/users/perfil');
         });
     },

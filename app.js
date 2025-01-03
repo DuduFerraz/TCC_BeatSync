@@ -1,7 +1,7 @@
-const express = require('express');
 const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
 const expressLayouts = require('express-ejs-layouts');
+const express = require('express');
 const session = require('express-session');
 const flash = require('connect-flash');
 const userRoutes = require('./routes/userRoutes');
@@ -46,7 +46,7 @@ app.use((req, res, next) => {
 // Definindo as rotas
 app.use('/users', userRoutes);
 app.use('/', indexRoutes);
-app.use('/play', playRoutes);
+app.use('/', playRoutes);
 
 // Função para renderizar todas as views dinamicamente (caso precise)
 const renderAllViews = (dirPath, baseRoute = '') => {

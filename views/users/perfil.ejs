@@ -2,10 +2,9 @@
 <main id="body">
     <div class="profile">
         <h2>Perfil do Usuário</h2>
-        <p><strong>Nome:</strong> <%= userNome %></p>
-        <p><strong>Email:</strong> <%= userEmail %></p>
-        <p><strong>Data de Nascimento:</strong> <%= userData_nasc %></p>
-        <!-- Você pode adicionar mais campos, como endereço, telefone, etc., se necessário -->
+        <p>Nome:<%= user.nome %></p>
+        <p>Email: <%= user.email %></p>
+        <p>Data de Nascimento:<%= user.data_nasc.toISOString().split('T')[0] %></p>
         <a href="/logout">Sair</a>
     </div>
 </main>
