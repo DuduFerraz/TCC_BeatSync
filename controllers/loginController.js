@@ -4,7 +4,7 @@ const loginController = {
     userLogin: (req, res) => {
         const { email, senha } = req.body;
 
-        console.log(`Tentativa de login com email: ${email}`); // Log do email fornecido
+        console.log(`Tentativa de login com email: ${email}`); 
 
         User.login({ email, senha }, (err, usuario) => {
             if (err) {
@@ -20,10 +20,12 @@ const loginController = {
             }
 
             console.log(`Usuário autenticado: ID = ${usuario.id}, Email = ${usuario.email}`);
+            req.session.user = usuario;
             req.session.userId = usuario.id;
             req.session.userEmail = usuario.email;
+
             req.flash('success_msg', 'Login realizado com sucesso!');
-            res.redirect('/users/perfil');
+            res.redirect('/users/treino');
         });
     },
 

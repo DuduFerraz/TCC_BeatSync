@@ -27,7 +27,7 @@ app.use(methodOverride('_method'));
 
 // Configuração da sessão
 app.use(session({
-  secret: 'secret-key', // Coloque uma chave secreta para proteger as sessões
+  secret: 'kdfjssahfidghfdi213judsak', 
   resave: false,
   saveUninitialized: true
 }));
