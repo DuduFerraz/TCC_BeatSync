@@ -1,0 +1,26 @@
+<style>
+
+    #title {
+        flex-direction: row;
+    }
+
+</style>
+
+<main id="body">
+
+<div id="sobreNos">
+
+    <div id="title">
+        <h1>Bem-Vindo!</h1>
+    </div>
+
+    <p><strong>Nome: </strong> <%= userNome %> </p><br>
+    <p><strong>Data de Nascimento: </strong> <%= userData_nasc %> </p> <br>
+    <p><strong>Email: </strong> <%= userEmail %> </p> <br>
+
+    <div class="btn">
+        <a href="/logout"><button class="botao" href="/logout" type="submit">Sair</button></a>
+    </div>
+</div>
+
+</main>

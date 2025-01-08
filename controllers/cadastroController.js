@@ -1,7 +1,12 @@
 const User = require('../models/cadastroModel');
 
 const cadastroController = {
-    // Função para cadastrar um usuário
+    // Renderiza o formulário de cadastro
+    renderCadastroForm: (req, res) => {
+        res.render('cadastro', { error: null, data: {} }); // Define erro e dados iniciais como nulos/vazios
+    },
+
+    // Cadastra um novo usuário
     userCadastro: (req, res) => {
         const newUser = {
             nome: req.body.nome,
@@ -14,15 +19,14 @@ const cadastroController = {
         User.Cadastro(newUser, (err, userId) => {
             if (err) {
                 if (err.message === 'E-mail já cadastrado.') {
-                    // Mensagem de erro para o usuário em caso de e-mail duplicado
-                    return res.status(400).render('cadastro', { 
+                    return res.status(400).render('cadastro', {
                         error: 'E-mail já registrado. Tente outro.',
-                        data: newUser // Passa os dados preenchidos para não perder o que o usuário digitou
+                        data: newUser, // Passa os dados preenchidos para não perder o que o usuário digitou
                     });
                 }
-                return res.status(500).render('cadastro', { 
+                return res.status(500).render('cadastro', {
                     error: 'Erro ao cadastrar. Tente novamente mais tarde.',
-                    data: newUser 
+                    data: newUser,
                 });
             }
 
@@ -31,33 +35,24 @@ const cadastroController = {
         });
     },
 
-    // Renderiza o formulário de cadastro
-    renderCadastroForm: (req, res) => {
-        res.render('cadastro', { error: null, data: {} }); // Define erro e dados iniciais como nulos/vazios
-    },
-
-    // Renderiza a página de playlist (se necessário)
-    renderPlaylist: (req, res) => {
-        res.render('users/playlist');
-    },
-
-    // Renderiza a página de treino (se necessário)
+    // Renderiza a página de treino
     renderTreino: (req, res) => {
-        res.render('users/treino');
+        res.render('users/treino', { title: 'Treino' });
     },
 
-    // Renderiza a página de perfil do usuário (se necessário)
+    // Renderiza a página de perfil do usuário
     renderPerfil: (req, res) => {
+        res.render('users/perfil', {
+            title: 'Perfil',
+            userNome: req.session.userNome,
+            userEmail: req.session.userEmail,
+            userData_nasc: req.session.userData_nasc,
+        });
+    },
 
-        module.exports.renderPerfil = (req, res) => {
-            // A lógica de renderização deve ser feita no arquivo de rotas (indexRoutes.js)
-            res.render('users/perfil', {
-              title: 'Perfil',
-              userNome: req.session.userNome,
-              userEmail: req.session.userEmail,
-              userData_nasc: req.session.userData_nasc
-            });
-          };
+    // Renderiza a página de playlist
+    renderPlaylist: (req, res) => {
+        res.render('users/playlist', { title: 'Playlist' });
     },
 };
 

@@ -1,22 +1,43 @@
 <main id="body">
-    <div class="form-treino">
-        <form class="form2" onsubmit="mostrarConteudo(event)"> <!-- Submete para a rota correta -->
-            <h2>Treino</h2>
-            <p class="pgtreino">Escolha uma das opções de treino abaixo</p>
-            <div class="fpr-treino">
-                <div class="camp-treino">
-                    <select class="input1" name="tipo" id="opcoes">
-                        <option id="opcoes" value="1">Musculação</option>
-                        <option id="opcoes" value="2">Cárdio</option>
-                        <option id="opcoes" value="3">Funcional</option>
-                        <option id="opcoes" value="4">CrossFit</option>
-                    </select>
+
+    <style>
+        #main2 {
+            flex-direction: row;
+        }
+    </style>
+
+    <div id="main2">
+        <div class="form-treino">
+            <form class="form2" onsubmit="mostrarConteudo(event)"> <!-- Submete para a rota correta -->
+                <h2>Treino</h2>
+                <p class="pgtreino">Escolha uma das opções de treino abaixo</p>
+                <div class="fpr-treino">
+                    <div class="camp-treino">
+                        <select class="input1" name="tipo" id="opcoes">
+                            <option id="opcoes" value="1">Musculação</option>
+                            <option id="opcoes" value="2">Cárdio</option>
+                            <option id="opcoes" value="3">Funcional</option>
+                            <option id="opcoes" value="4">CrossFit</option>
+                        </select>
+                    </div>
+                    <div class="btn">
+                        <button class="botao" type="submit">Enviar</button>
+                    </div>
                 </div>
-                <div class="btn">
-                    <button class="botao" type="submit">Enviar</button>
-                </div>
-            </div>
-        </form>
+            </form>
+        </div>
+        <div class="conjunto-botao">
+            <a href="/">
+                <button class="btn-table">
+                  <span class="span-table">Voltar</span>
+                </button>
+            </a>
+            <a href="/users/playlist">
+                <button class="btn-table">
+                  <span class="span-table">Playlists</span>
+                </button>
+            </a>
+        </div>
     </div>
 </main>
 <script>
