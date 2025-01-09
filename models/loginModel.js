@@ -2,7 +2,7 @@ const db = require('../config/db');
 
 const User = {
     login: (usuarios, callback) => {
-        const query = 'SELECT id, nome, email, data_nasc, senha FROM usuarios WHERE email = ?';
+        const query = 'SELECT id, nome, email, data_nasc, genero, senha FROM usuarios WHERE email = ?';
 
         db.query(query, [usuarios.email], (err, results) => {
             if (err) {

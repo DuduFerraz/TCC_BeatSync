@@ -2,25 +2,58 @@
 
     #title {
         flex-direction: row;
+        margin-bottom: 30px;
+        font-size: 40px;
+        margin-right: 200px;
+        font-weight: bolder;
+    }
+    #saibaMais {
+        background-color: #000000; /* fundo semitransparente */
+        padding: 50px;
+        font-size: 18px; /* ajuste conforme necessário */
+        border-radius: 10px;
+        color: white;
+        transition: 1s ease;
+        text-align: left;
+    }
+    .corpinho {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+    .divisao_terapeutica {
+        background-color: #fff;
+        color: #000;
+        margin: 10px;
+        border-radius: 8px;
+        align-items: center;
+        padding: 4px;
     }
 
 </style>
 
 <main id="body">
-
-<div id="sobreNos">
-
+<div class="corpinho">
     <div id="title">
         <h1>Bem-Vindo!</h1>
     </div>
 
-    <p><strong>Nome: </strong> <%= userNome %> </p><br>
-    <p><strong>Data de Nascimento: </strong> <%= userData_nasc %> </p> <br>
-    <p><strong>Email: </strong> <%= userEmail %> </p> <br>
-
-    <div class="btn">
-        <a href="/logout"><button class="botao" href="/logout" type="submit">Sair</button></a>
-    </div>
+        <div id="saibaMais">
+            <div class="divisao_terapeutica">
+                <p><strong>Nome: </strong> <%= userNome %> </p><br>
+            </div>
+            <div class="divisao_terapeutica">
+                <p><strong>Data de Nascimento: </strong> <%= userData_nasc %> </p> <br>
+            </div>
+            <div class="divisao_terapeutica">
+                <p><strong>Email: </strong> <%= userEmail %> </p> <br>
+            </div>
+            <div class="divisao_terapeutica">
+                <p><strong>Gênero: </strong> <%= userGenero %> </p> <br>
+            </div>
+            <div class="btn">
+                <a href="/logout"><button class="botao" href="/logout" type="submit">Sair</button></a>
+            </div>
+        </div>
 </div>
-
 </main>

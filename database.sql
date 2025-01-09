@@ -1,11 +1,11 @@
-CREATE DATABASE BeatSync;
-USE BeatSync;
+create database beatsync;
+use beatsync;
 
-CREATE TABLE usuarios (
-	id INT AUTO_INCREMENT PRIMARY KEY,
-	nome VARCHAR(255) NOT NULL,
-	email VARCHAR(255) NOT NULL,
-	data_nasc DATE NOT NULL,
-	genero VARCHAR(255) NOT NULL,
-	senha INT NOT NULL
+create table usuarios (
+	id int auto_increment primary key,
+	nome varchar(255) not null,
+	email varchar(255) not null,
+	data_nasc date not null,
+	genero varchar(255) not null,
+	senha int not null
 );

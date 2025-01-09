@@ -237,20 +237,24 @@ form {
     transition: 1s ease;
     height: auto;
     padding: 8px;
+    width: 400px;
 }
 
 .form1 {
-    padding: 5px;
+    padding: 10px;
     border: solid;
     border-color: rgb(255, 255, 255);
     background-color: rgb(255, 255, 255);
-    border-radius: 10px;
+    border-radius: 5px;
     color: #000000;
+    font-weight: bold;
+    text-decoration: none;
 }
 
 form h2 {
     text-align: center;
     color: white;
+    font-size: 40px;
 }
 
 form:hover {
@@ -292,6 +296,13 @@ form:hover {
 .botao:hover {
     background-color: rgb(219, 105, 70);
     color: black;
+}
+
+/* style texto para caminho de login e cadastro*/
+.text-guiacadastro {
+    color: #FFFFFF;
+    font-size: 20px;
+    text-align: center;
 }
 
 /* --------------------------------------------------------------------------------------------------------------------------------------------- */

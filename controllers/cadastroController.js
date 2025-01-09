@@ -47,6 +47,7 @@ const cadastroController = {
             userNome: req.session.userNome,
             userEmail: req.session.userEmail,
             userData_nasc: req.session.userData_nasc,
+            userGenero: req.session.userGenero,
         });
     },
 
