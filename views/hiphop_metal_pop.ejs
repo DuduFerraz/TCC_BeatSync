@@ -1,25 +1,53 @@
-<main id="playlist">
-    <a href="/plays3/play1">
-        <button class="btn-playlist">
-            <span>Playlist 1</span>
-        </button>
-    </a>
-
-    <a href="/plays3/play2">
-        <button class="btn-playlist">
-            <span>Playlist 2</span>
-        </button>
-    </a>
-
-    <a href="/plays3/play3">
-        <button class="btn-playlist">
-            <span>Playlist 3</span>
-        </button>
-    </a>
-
-    <a href="/users/playlist">
-        <button class="btn-playlist">
-            <span>Voltar</span>
-        </button>
-    </a>
+<main id="mainPl">
+        <div>
+            <div id="forPlay">
+                <iframe style= "border-radius:12px" src="https://open.spotify.com/embed/playlist/26JM1CNlCRrLBuOwIDl0Z5?utm_source=generator&theme=0" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            </div>
+        </div>
+        <div>
+            <div id="forPlay">
+                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/4t0Ktdz83KOtMdkTMbTADG?utm_source=generator&theme=0" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            </div>
+        </div>
+        <div>
+            <div>
+                <div id="forPlay">
+                    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/5j6RFbipaTWRi1bIEuA4a6?utm_source=generator&theme=0" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
 </main>
+
+<style>
+
+        #mainPl {
+            height: 80%;
+            margin-bottom: 10px;
+        }
+        #forPlay {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 0 9px rgba(255, 255, 255, 0.8);
+            border-radius: 13px;
+            opacity: 0; 
+            animation: aparecer 2s forwards; 
+            margin: 10px;
+        }
+        @keyframes aparecer {
+            0% {
+                opacity: 0;
+                transform: scale(0.8); 
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1); 
+            }
+        }
+
+        iframe {
+            width: 30vw;
+            height: 70vh;
+        }
+
+</style>

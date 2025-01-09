@@ -112,35 +112,6 @@ main {
     animation: aparecer 1.9s forwards;
 }
 
-    #mainPl {
-            background-color: rgba(0, 0, 0, 0.671); 
-            height: 85%;
-        }
-        #forPlay {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            box-shadow: 0 0 9px rgba(255, 255, 255, 0.8);
-            border-radius: 13px;
-            opacity: 0; 
-            animation: aparecer 3s forwards; 
-        }
-        @keyframes aparecer {
-            0% {
-                opacity: 0;
-                transform: scale(0.8); 
-            }
-            100% {
-                opacity: 1;
-                transform: scale(1); 
-            }
-        }
-
-        iframe {
-            width: 80vw;
-            height: 63vh;
-        }
-
 .barra {
     width: 60vw;
     background-color:#000000;
@@ -196,8 +167,7 @@ footer {
     background-color: rgb(0, 0, 0);
     padding: 14px;
     justify-content: center;
-    position: fixed;
-    width: 100%;
+    width: auto;
     bottom: 0;  
 }
 .text-fote {
