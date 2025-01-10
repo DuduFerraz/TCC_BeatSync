@@ -332,7 +332,6 @@ form:hover {
 .main-treino {  
     display: flex;
     justify-content: center;
-    height: 70%;
     align-items: center;
 }
 

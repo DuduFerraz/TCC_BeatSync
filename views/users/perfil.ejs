@@ -7,7 +7,7 @@
         margin-right: 200px;
     }
     .h1title {
-        text-shadow: 2px 2px 2px #000000a8;
+        text-shadow: 3px 2px 2px #20010085;
         font-weight: bolder;
     }
     #saibaMais {
@@ -18,6 +18,10 @@
         color: white;
         transition: 1s ease;
         text-align: left;
+    }
+
+    #saibaMais:hover {
+        box-shadow: 9px 9px 5px #20010085;
     }
     .corpinho {
         display: flex;
@@ -45,18 +49,38 @@
             <div class="divisao_terapeutica">
                 <p><strong>Nome: </strong> <%= userNome %> </p><br>
             </div>
+            
             <div class="divisao_terapeutica">
                 <p><strong>Data de Nascimento: </strong> <%= userData_nasc %> </p> <br>
             </div>
+
             <div class="divisao_terapeutica">
                 <p><strong>Email: </strong> <%= userEmail %> </p> <br>
             </div>
+
             <div class="divisao_terapeutica">
                 <p><strong>Gênero: </strong> <%= userGenero %> </p> <br>
             </div>
-            <div class="btn">
-                <a href="/logout"><button class="botao" href="/logout" type="submit">Sair</button></a>
+
+            <div class="divisao_terapeutica">
+                <p><strong>Peso: </strong> <%= userPeso %> </p> <br>
             </div>
+
+            <div class="divisao_terapeutica">
+                <p><strong>Altura: </strong> <%= userAltura %> </p> <br>
+            </div>
+
+            <div class="btn">
+                <a href="/logout"><button class="botao" type="submit">Sair</button></a>
+            </div>
+
+            <div class="btn">
+                <a href="/editar"><button class="botao" type="submit">Editar</button></a>
+            </div>
+
+            <form action="/deletar" method="POST" style="display: inline;">
+                <a href="/deletar"><button class="botao" type="submit">Deletar</button></a>
+            </form>
         </div>
 </div>
 </main>

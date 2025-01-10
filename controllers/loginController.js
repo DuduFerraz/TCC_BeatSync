@@ -26,6 +26,8 @@ const loginController = {
             req.session.userNome = usuario.nome;
             req.session.userData_nasc = usuario.data_nasc;
             req.session.userGenero = usuario.genero;
+            req.session.userPeso = usuario.peso;
+            req.session.userAltura = usuario.altura;
 
 
             req.flash('success_msg', 'Login realizado com sucesso!');

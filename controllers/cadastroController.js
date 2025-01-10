@@ -11,6 +11,8 @@ const cadastroController = {
         const newUser = {
             nome: req.body.nome,
             email: req.body.email,
+            peso: req.body.peso,
+            altura: req.body.altura,
             data_nasc: req.body.dataNasc,
             genero: req.body.genero,
             senha: req.body.senha, // A senha será criptografada no cadastroModel
@@ -35,6 +37,50 @@ const cadastroController = {
         });
     },
 
+    // Função para editar o perfil do usuário
+    editar: (req, res) => {
+        const userId = req.session.userId;
+        const updatedUser = {
+            nome: req.body.nome,
+            email: req.body.email,
+            data_nasc: req.body.data_nasc,
+            peso: req.body.peso,
+            altura: req.body.altura,
+            genero: req.body.genero,
+            senha: req.body.senha,
+        };
+    
+        User.update(userId, updatedUser, (err) => { // Use o nome correto da função de model
+            if (err) {
+                console.error('Erro ao atualizar o perfil:', err);
+                return res.status(500).send('Erro ao atualizar o perfil.');
+            }
+    
+            // Atualiza os dados na sessão
+            Object.assign(req.session, updatedUser);
+    
+            res.redirect('/users/perfil');
+        });
+    },
+    
+
+    deletar: (req, res) => {
+        const userId = req.session.userId;
+    
+        User.delete(userId, (err) => {
+            if (err) {
+                console.error('Erro ao excluir o perfil:', err);
+                return res.status(500).send('Erro ao excluir o perfil.');
+            }
+    
+            // Limpa a sessão e redireciona para a página de cadastro
+            req.session.destroy((err) => {
+                if (err) console.error('Erro ao destruir a sessão:', err);
+                res.redirect('/cadastro');
+            });
+        });
+    },
+    
     // Renderiza a página de treino
     renderTreino: (req, res) => {
         res.render('users/treino', { title: 'Treino' });
@@ -46,8 +92,23 @@ const cadastroController = {
             title: 'Perfil',
             userNome: req.session.userNome,
             userEmail: req.session.userEmail,
+            userPeso: req.session.userPeso,
+            userAltura: req.session.userAltura,
             userData_nasc: req.session.userData_nasc,
             userGenero: req.session.userGenero,
+        });
+    },
+
+    // Renderiza o formulário de edição do perfil
+    renderEditarPerfil: (req, res) => {
+        res.render('/editar', { // Corrigido o caminho ("/editar" para "editar")
+            userNome: req.session.userNome,
+            userEmail: req.session.userEmail,
+            userData_nasc: req.session.userData_nasc,
+            userPeso: req.session.userPeso,
+            userAltura: req.session.userAltura,
+            userGenero: req.session.userGenero,
+            userSenha: req.session.userSenha
         });
     },
 

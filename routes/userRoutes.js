@@ -8,6 +8,14 @@ router.get('/treino', checkAuth, cadastroController.renderTreino);
 router.get('/perfil', checkAuth, cadastroController.renderPerfil);
 router.get('/playlist', checkAuth, cadastroController.renderPlaylist);
 
+// Rota para renderizar o formulário de edição
+router.get('/editar', checkAuth, cadastroController.renderEditarPerfil);
+
+// Rota para atualizar o perfil
+router.post('/editar', checkAuth, cadastroController.editar);
+
+// Rota para deletar o perfil
+router.post('/deletar', checkAuth, cadastroController.deletar);
 
 router.post('/cadastro', cadastroController.userCadastro);
 router.post('/login', loginController.userLogin);
