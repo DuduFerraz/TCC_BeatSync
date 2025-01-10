@@ -65,21 +65,28 @@ const cadastroController = {
     
 
     deletar: (req, res) => {
-        const userId = req.session.userId;
+        const userId = req.session.userId; // Recupera o ID do usuário da sessão
+    
+        if (!userId) {
+            return res.status(401).send('Usuário não autenticado.');
+        }
     
         User.delete(userId, (err) => {
             if (err) {
-                console.error('Erro ao excluir o perfil:', err);
-                return res.status(500).send('Erro ao excluir o perfil.');
+                console.error('Erro ao deletar perfil:', err);
+                return res.status(500).send('Erro ao deletar perfil.');
             }
     
-            // Limpa a sessão e redireciona para a página de cadastro
+            // Remove a sessão após a exclusão do perfil
             req.session.destroy((err) => {
-                if (err) console.error('Erro ao destruir a sessão:', err);
-                res.redirect('/cadastro');
+                if (err) {
+                    console.error('Erro ao encerrar a sessão:', err);
+                }
+                res.redirect('/'); // Redireciona para a página inicial após a exclusão
             });
         });
     },
+    
     
     // Renderiza a página de treino
     renderTreino: (req, res) => {
@@ -101,7 +108,7 @@ const cadastroController = {
 
     // Renderiza o formulário de edição do perfil
     renderEditarPerfil: (req, res) => {
-        res.render('/editar', { // Corrigido o caminho ("/editar" para "editar")
+        res.render('editar', { // Corrigido o caminho ("/editar" para "editar")
             userNome: req.session.userNome,
             userEmail: req.session.userEmail,
             userData_nasc: req.session.userData_nasc,
