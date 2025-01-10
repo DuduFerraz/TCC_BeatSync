@@ -2,12 +2,12 @@
 
 <main id="body">
     <div class="form">
-        <form action="/editar" method="POST">
+        <form action="editar" method="POST">
             <h2>Cadastro</h2>
             <div class="fpr">
                 <div class="form1">
                     <label for="nome">Nome:</label>
-                    <input class="input" type="text" id="nome" name="nome" value="<%= userNome% >" required>
+                    <input class="input" type="text" id="nome" name="nome" value=" <%= userNome %>" required>
                 </div>
 
                 <div class="form1">
@@ -17,7 +17,7 @@
 
                 <div class="form1">
                     <label for="dataNasc">Data de Nascimento:</label>
-                    <input class="input"  type="date" id="dataNasc" name="dataNasc" value="<%= userData_nasc %>" required>
+                    <input class="input" type="date" id="dataNasc" name="dataNasc" value="<%= userData_nasc %>" required>
                 </div>
 
                 <div class="form1">

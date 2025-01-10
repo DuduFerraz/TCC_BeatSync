@@ -37,7 +37,7 @@ const User = {
     },
 
     update: (id, updatedUser, callback) => {
-        const query = 'UPDATE usuarios SET nome = ?, email = ?, data_nasc = ? peso = ? altura = ? genero = ? senha = ? WHERE id = ?';
+        const query = 'UPDATE usuarios SET nome = ?, email = ?, data_nasc = ?, peso = ?, altura = ?, genero = ?, senha = ? WHERE id = ?';
         const params = [updatedUser.nome, updatedUser.email, updatedUser.data_nasc, updatedUser.peso, updatedUser.altura, updatedUser.genero, updatedUser.senha, id];
     
         db.query(query, params, (err, result) => {
