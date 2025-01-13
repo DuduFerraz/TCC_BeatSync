@@ -42,6 +42,10 @@
         display: flex;
     }
 
+    #delete {
+        
+    }
+
 </style>
 
 <main id="body">
@@ -77,15 +81,16 @@
 
 
             <div id="posts">
-                <div class="btn">
-                    <a href="/logout"><button class="botao" type="submit">Sair</button></a>
-                </div>
     
                 <div class="btn">
                     <a href="editar"><button class="botao">Editar</button></a>
                 </div>
+
+                <div class="btn">
+                    <a href="/logout"><button class="botao" type="submit">Sair</button></a>
+                </div>
     
-                <form action="deletar" method="POST" style="display: inline;">
+                <form action="deletar" method="POST" style="display: inline;" id="delete">
                     <a href="deletar"><button class="botao" type="submit">Deletar</button></a>
                 </form>
             </div>
