@@ -15,7 +15,7 @@ body {
     font-family: "Abel", sans-serif;
     background-size: cover;
     background-repeat: no-repeat;
-    height: 95vh;
+    height: 89.4vh;
 }
 
 /* --------------------------------------------------------------------------------------------------------------------------------------------- */
@@ -205,7 +205,7 @@ form {
     transition: 1s ease;
     height: auto;
     padding: 8px;
-    width: 400px;
+    width: 25vw;
 }
 
 .form1 {
@@ -619,3 +619,6 @@ p.pgtreino {
     right: 0;
    }
 /*--------------------------------------------------------------------------------------------------------*/
+
+
+

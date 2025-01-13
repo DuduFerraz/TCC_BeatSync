@@ -31,7 +31,7 @@ const loginController = {
 
 
             req.flash('success_msg', 'Login realizado com sucesso!');
-            res.redirect('/users/treino');
+            res.redirect('/');
         });
     },
 
