@@ -15,7 +15,9 @@ body {
     font-family: "Abel", sans-serif;
     background-size: cover;
     background-repeat: no-repeat;
-    height: 89.4vh;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 /* --------------------------------------------------------------------------------------------------------------------------------------------- */
@@ -94,7 +96,7 @@ ul {
 /* CORPO PADRÃO */
 main {
     display: flex;
-    height: 88.4%;
+    flex: 1 1 0;
     justify-content: center;
     align-items: center;
 }
@@ -164,9 +166,8 @@ main {
 footer {
     display: flex;
     background-color: rgb(0, 0, 0);
-    padding: 14px;
+    padding: 10px;
     justify-content: center;
-    bottom: 0;
 }
 .text-fote {
     align-self: center;
@@ -193,6 +194,7 @@ footer {
 
 .form {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     color: #000000;
 }
@@ -201,15 +203,16 @@ form {
     background-color: #000000;
     color: rgb(0, 0, 0);
     border-radius: 10px;
-    font-size:larger;
+    font-size: 15px;
     transition: 1s ease;
     height: auto;
     padding: 8px;
-    width: 25vw;
+    width: 30vw;
 }
 
 .form1 {
-    padding: 10px;
+    padding: 5px;
+    margin: 6px;
     border: solid;
     border-color: rgb(255, 255, 255);
     background-color: rgb(255, 255, 255);
@@ -227,10 +230,6 @@ form h2 {
 
 form:hover {
     box-shadow: -9px 9px 5px #20010085;
-}
-
-.fpr div {
-    margin: 10px;
 }
 
 .input {
